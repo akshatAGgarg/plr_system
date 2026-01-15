@@ -44,6 +44,11 @@
       "selector": "//div[1]",
       "confidence": 0.98,
       "last_updated": "now"
+    },
+    ".input-group": {
+      "selector": "//div[contains(@class, 'input-group-2')]",
+      "confidence": 0.98,
+      "last_updated": "now"
     }
   }
 }

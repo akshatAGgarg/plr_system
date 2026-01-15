@@ -19,11 +19,23 @@ def test_class_uniqueness():
     
     print(f"Generated XPath: {xpath}")
     
-    expected = "//div[contains(@class, 'link-text-2')]"
+    expected = "//div[@class='link-text-2']"
     if xpath == expected:
-        print("SUCCESS: Unique class correctly identified.")
+        print("SUCCESS: Exact class match correctly prioritized.")
     else:
         print(f"FAILURE: Expected {expected}, but got {xpath}")
+
+    # Create a tree where element has multiple classes
+    multi_class_root = Node(tag="body", children=[
+        Node(tag="div", attributes={"class": "btn primary unique-btn"}, text="Click Me")
+    ])
+    target_multi = multi_class_root.children[0]
+    xpath_multi = robula.generate_xpath(target_multi, multi_class_root)
+    print(f"Generated XPath (Multi-Class): {xpath_multi}")
+    if "contains" in xpath_multi:
+        print("SUCCESS: Correctly fell back to 'contains' for multi-class element.")
+    else:
+        print("FAILURE: Did not use 'contains' for multi-class element.")
 
     # Create a tree where 'link-text-2' is NOT unique
     non_unique_root = Node(tag="body", children=[

@@ -27,6 +27,13 @@ class RobulaPlus:
         
         # 2. Try Classes
         if node.classes and self.weights.get('class', 0) > 0.5:
+            # First try exact match if only one class
+            if len(node.classes) == 1:
+                xpath = f"//{node.tag}[@class='{node.classes[0]}']"
+                if self._is_unique(xpath, context_tree):
+                    return xpath
+            
+            # Fallback to contains
             for cls in node.classes:
                 xpath = f"//{node.tag}[contains(@class, '{cls}')]"
                 if self._is_unique(xpath, context_tree):
@@ -61,9 +68,13 @@ class RobulaPlus:
         tag_target = None
         id_target = None
         class_target = None
+        class_exact_target = None
 
         if "//*[@id='" in xpath:
             id_target = xpath.split("'")[1]
+        elif "[@class='" in xpath:
+            tag_target = xpath.split("[")[0].replace("//", "")
+            class_exact_target = xpath.split("'")[1]
         elif "[contains(@class, '" in xpath:
             tag_target = xpath.split("[")[0].replace("//", "")
             class_target = xpath.split("'")[1]
@@ -77,6 +88,8 @@ class RobulaPlus:
             if tag_target and tag_target != "*" and curr.tag != tag_target:
                 is_match = False
             if id_target and curr.id != id_target:
+                is_match = False
+            if class_exact_target and curr.attributes.get('class') != class_exact_target:
                 is_match = False
             if class_target and class_target not in curr.classes:
                 is_match = False
