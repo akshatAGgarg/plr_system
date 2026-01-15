@@ -1,0 +1,49 @@
+{
+  "locators": {
+    "login_button": {
+      "selector": "//*[@id='login-btn-v2']",
+      "confidence": 0.98,
+      "last_updated": "now"
+    },
+    "app": {
+      "selector": "//*[@id='app']",
+      "confidence": 0.98,
+      "last_updated": "now"
+    },
+    "login-btn": {
+      "selector": "//*[@id='submit-btn-v2']",
+      "confidence": 0.98,
+      "last_updated": "now"
+    },
+    ".main": {
+      "selector": "//div[1]",
+      "confidence": 0.98,
+      "last_updated": "now"
+    },
+    ".card": {
+      "selector": "//div[1]",
+      "confidence": 0.98,
+      "last_updated": "now"
+    },
+    ".your-site": {
+      "selector": "//p[1]",
+      "confidence": 0.98,
+      "last_updated": "now"
+    },
+    "login-input": {
+      "selector": "//*[@id='login-input']",
+      "confidence": 0.98,
+      "last_updated": "now"
+    },
+    ".btn btn-primary": {
+      "selector": "//button[1]",
+      "confidence": 0.98,
+      "last_updated": "now"
+    },
+    ".link-text": {
+      "selector": "//div[1]",
+      "confidence": 0.98,
+      "last_updated": "now"
+    }
+  }
+}
