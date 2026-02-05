@@ -11,8 +11,8 @@
       "last_updated": "now"
     },
     "login-btn": {
-      "selector": "//*[@id='submit-btn-v2']",
-      "confidence": 0.98,
+      "selector": "//*[@id='login-btn']",
+      "confidence": 1.0,
       "last_updated": "now"
     },
     ".main": {
@@ -47,6 +47,26 @@
     },
     ".input-group": {
       "selector": "//div[contains(@class, 'input-group-2')]",
+      "confidence": 0.98,
+      "last_updated": "now"
+    },
+    "data-widget": {
+      "selector": "//*[@id='stats-widget']",
+      "confidence": 0.98,
+      "last_updated": "now"
+    },
+    "action-trigger": {
+      "selector": "//*[@id='action-trigger']",
+      "confidence": 0.98,
+      "last_updated": "now"
+    },
+    "display-name-input": {
+      "selector": "//*[@id='full-name-field']",
+      "confidence": 0.98,
+      "last_updated": "now"
+    },
+    "save-settings": {
+      "selector": "//*[@id='save-settings']",
       "confidence": 0.98,
       "last_updated": "now"
     }
